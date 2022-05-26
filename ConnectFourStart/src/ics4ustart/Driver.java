@@ -30,6 +30,7 @@ public class Driver {
 			
 		while (!done) {
 			boolean avalCol = false;
+			//ensure a column still has space and redos if not
 			while(!avalCol ) {
 				column = getColumn(in, 1, COLS); // include min and max
 				if(board.validCol(column)) {
@@ -40,6 +41,7 @@ public class Driver {
 				}
 				
 			}
+			//place piece
 			board.placePiece(column, player);
 			
 			board.display();
@@ -55,6 +57,7 @@ public class Driver {
 			else if (player == CellState.P2) {
 				player = CellState.P1;
 			}
+			//closes game if board is full
 			if(board.isFull()) {
 				done = true;
 				System.out.println("Board is FULL");
